@@ -23,6 +23,10 @@ def some_user_number(request, user_number):
     return HttpResponse(f'User {user_number} page is here')
 
 
+def some_article_number_archive(request, article_number):
+    return HttpResponse(f'{article_number} archive is here')
+
+
 def some_article_number_slug(request, article_number, slug_text=''):
     return render(request, 'article.html', {'article_number': article_number, 'slug_text': slug_text})
 
