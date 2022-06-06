@@ -23,10 +23,6 @@ def some_user_number(request, user_number):
     return HttpResponse(f'User {user_number} page is here')
 
 
-def some_article_number(request, article_number):
-    return render(request, 'article.html', {'article_number': article_number})
-
-
 def some_article_number_slug(request, article_number, slug_text=''):
     return render(request, 'article.html', {'article_number': article_number, 'slug_text': slug_text})
 
