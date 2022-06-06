@@ -14,8 +14,8 @@ function randomInteger(min, max) {
 }
 function randomString(i) {
     var result = '';
-    while (rnd.length < i)
-        rnd += Math.random().toString(36).substring(2);
+    while (result.length < i)
+        result += Math.random().toString(36).substring(2);
     return result.substring(0, i);
 };
 
