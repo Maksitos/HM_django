@@ -54,7 +54,7 @@ ROOT_URLCONF = 'djangoHM.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['djangoHM/templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

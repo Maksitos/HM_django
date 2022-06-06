@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="#" id="myLink1">Random article</a>
+<br>
+<a href="#" id="myLink2">Random article with slug</a>
+<br>
+<script>
+const randomLink1 = document.getElementById('myLink1')
+const randomLink2 = document.getElementById('myLink2')
+function randomInteger(min, max) {
+  let rand = min + Math.random() * (max - min);
+  return Math.round(rand);
+}
+function randomString(i) {
+    var result = '';
+    while (rnd.length < i)
+        rnd += Math.random().toString(36).substring(2);
+    return result.substring(0, i);
+};
+
+randomLink1.href = `http://127.0.0.1:8000/articles/` + randomInteger(1, 1000)
+randomLink2.href = `http://127.0.0.1:8000/articles/` + randomInteger(1, 1000) + `/${randomString(randomInteger(5, 10))}`
+</script>
+{% endblock %}

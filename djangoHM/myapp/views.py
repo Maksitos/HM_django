@@ -3,11 +3,12 @@ from django.shortcuts import render
 
 
 def main(request):
-    return HttpResponse('Main page is here')
+    some_number = [i for i in range(10)]
+    return render(request, 'index.html', {'some_number': some_number})
 
 
 def main_article(request):
-    return HttpResponse('Main articles page is here')
+    return HttpResponse('Main article is here')
 
 
 def some_articles_archive(request):
@@ -23,11 +24,11 @@ def some_user_number(request, user_number):
 
 
 def some_article_number(request, article_number):
-    return HttpResponse(f'Article {article_number} page is here')
+    return render(request, 'article.html', {'article_number': article_number})
 
 
-def some_article_number_archive(request, article_number):
-    return HttpResponse(f'{article_number} archive is here')
+def some_article_number_slug(request, article_number, slug_text=''):
+    return render(request, 'article.html', {'article_number': article_number, 'slug_text': slug_text})
 
 
 def regular(request, text):

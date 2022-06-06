@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if article_number|divisibleby:2%}
+<div>Article nubmer is even</div>
+{% else %}
+<div>Article nubmer is odd</div>
+{% endif %}
+{% include 'Slug.html' with slug=slug_text %}
+{% endblock %}
