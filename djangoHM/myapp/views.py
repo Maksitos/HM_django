@@ -3,8 +3,7 @@ from django.shortcuts import render
 
 
 def main(request):
-    some_number = [i for i in range(10)]
-    return render(request, 'index.html', {'some_number': some_number})
+    return render(request, 'index.html')
 
 
 def main_article(request):
