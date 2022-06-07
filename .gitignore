@@ -1,2 +1,5 @@
 /venv/
 /.idea/
+/djangoHM/djangoHM/__pycache__/
+/djangoHM/myapp/__pycache__/
+/djangoHM/db.sqlite3/

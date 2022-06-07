@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load rantags %}
+{% random_number 1 1000 as rndm1 %}
+{% random_number 1 1000 as rndm2 %}
+{% random_number 5 10 as rndm3 %}
+{% random_string rndm3 as rndmstr %}
+<a href="{% url 'article' rndm1 %}">Random article</a>
+<br>
+<a href= "{% url 'article_slug' rndm2 rndmstr %}">Random article with slug</a>
+<br>
+{% endblock %}
