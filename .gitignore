@@ -3,3 +3,5 @@
 /djangoHM/djangoHM/__pycache__/
 /djangoHM/myapp/__pycache__/
 /djangoHM/db.sqlite3/
+/djangoHM/myapp/migrations/__pycache__/
+/djangoHM/myapp/templatetags/__pycache__/
