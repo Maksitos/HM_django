@@ -22,3 +22,4 @@ class Rating(models.Model):
     choice = models.IntegerField(choices=Choice.choices)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    author = models.ForeignKey(Person, on_delete=models.SET_DEFAULT, default=None, null=True, blank=True)
