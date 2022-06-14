@@ -7,7 +7,7 @@ class Author(models.Model):
 
 class Catalog(models.Model):
     title = models.CharField(max_length=80)
-    author = models.OneToOneField(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
 
 class Authorinlib(models.Model):
