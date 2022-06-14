@@ -19,10 +19,11 @@ from myapp.views import main, users, some_user_number, regular, phone
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main),
+    path('', main, name='index'),
     path('users/', users),
     path('articles/', include('myapp.urls')),
+    path('blog/', include('blogapp.urls')),
     path('users/<int:user_number>', some_user_number),
-    re_path(r'^(?P<text>[1-9a-f]{4}-[a-zA-Z0-9]{6}$)',regular),
+    re_path(r'^(?P<text>[1-9a-f]{4}-[a-zA-Z0-9]{6}$)', regular),
     re_path(r'^(?P<number>0(63|50|93|66)\d{7}$)', phone)
 ]

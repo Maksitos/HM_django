@@ -1,0 +1,32 @@
+from blogapp.models import Person, Article, Comment, Rating
+Person.objects.create(name='MAX')
+Person.objects.create(name='MAX2')
+Person.objects.create(name='MAX3')
+Person.objects.create(name='MAX4')
+
+Article.objects.create(author=Person.objects.get(id=10), text='asdf')
+Article.objects.create(author=Person.objects.get(id=11), text='qwer')
+Article.objects.create(author=Person.objects.get(id=12), text='zxcv')
+Article.objects.create(author=Person.objects.get(id=13), text='pois')
+
+Comment.objects.create(article=Article.objects.get(id=7),
+                       text='mycomment')
+Comment.objects.create(article=Article.objects.get(id=7),
+                       text='mycommenttocomment',
+                       subcomment=Comment.objects.get(id=10)
+                       )
+Comment.objects.create(article=Article.objects.get(id=8),
+                       text='Start Comment',
+                       )
+Comment.objects.create(article=Article.objects.get(id=8),
+                       text='Time To Middle Comment',
+                       )
+Comment.objects.create(article=Article.objects.get(id=9),
+                       text='Commeting Finish',
+                       )
+
+Comment.objects.filter(text__contains='Start').update(text='k and c')
+Comment.objects.filter(text__contains='Middle').update(text='Second Change')
+Comment.objects.filter(text__contains='Finish').update(text='only k')
+
+Comment.objects.filter(text__contains='k').exclude(text__contains='c').delete()
