@@ -16,7 +16,7 @@ class Comment(models.Model):
 
     def save(self, **kwargs):
         if not self.id:
-            self.created_at = timezone.now() - timezone.timedelta(days=360)
+            self.created_at = timezone.now() - timezone.timedelta(days=365)
         super().save(**kwargs)
 
 class Rating(models.Model):
