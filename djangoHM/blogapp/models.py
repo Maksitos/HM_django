@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Person(models.Model):
     name = models.CharField(max_length=100)
@@ -9,6 +10,7 @@ class Article(models.Model):
     text = models.TextField(max_length=10000, null=True, blank=True)
 
 class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     text = models.TextField(max_length=10000, null=True)
     subcomment = models.ForeignKey('blogapp.Comment', on_delete=models.CASCADE, null=True, blank=True, related_name='comments')
@@ -16,7 +18,7 @@ class Comment(models.Model):
 
     def save(self, **kwargs):
         if not self.id:
-            self.created_at = timezone.now() - timezone.timedelta(days=360)
+            self.created_at = timezone.now() - timezone.timedelta(days=365)
         super().save(**kwargs)
 
 class Rating(models.Model):

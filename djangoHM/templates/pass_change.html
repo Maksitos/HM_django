@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="{% url 'pass_change' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Send Form</button>
+    </form>
+    {{ form.cleaned_data }}
+</body>
+</html>
