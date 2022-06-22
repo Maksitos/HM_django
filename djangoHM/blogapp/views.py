@@ -72,6 +72,7 @@ def my_register(request):
 
 @login_required(login_url='/blog/login')
 def pass_change(request):
+    wrong_pass = False
 
     if request.method == 'POST':
         form = PassChangeForm(request.POST)
@@ -83,9 +84,12 @@ def pass_change(request):
                 u.set_password(raw_password=new_pass)
                 u.save()
                 return HttpResponseRedirect('/blog/form')
+            else:
+                wrong_pass = True
+
     else:
         form = PassChangeForm()
-    return render(request, 'pass_change.html', {'form': form})
+    return render(request, 'pass_change.html', {'form': form, 'wrong_pass':wrong_pass})
 
 
 def get_comment(request):

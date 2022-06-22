@@ -1,6 +1,8 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
+
 
 
 class Form(forms.Form):
@@ -43,7 +45,11 @@ class RegistrationForm(forms.Form):
     def clean(self):
         cleaned_data = super().clean()
         password = cleaned_data.get('password')
+        username = cleaned_data.get('username')
         rep_password = cleaned_data.get('rep_password')
+
+        if User.objects.get(username=username):
+            raise forms.ValidationError('A user with the same username already exists.')
 
         if password != rep_password:
             raise forms.ValidationError('Passwords don\'t match!')
@@ -66,7 +72,7 @@ class PassChangeForm(forms.Form):
             raise forms.ValidationError('New passwords don\'t match!')
 
         if password != rep_password:
-            raise forms.ValidationError('New passwords don\'t match!')
+            raise forms.ValidationError('Old passwords don\'t match!')
 
 
 class GetComments(forms.Form):

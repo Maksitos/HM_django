@@ -5,11 +5,13 @@
     <title>Title</title>
 </head>
 <body>
+    {% if wrong_pass %}
+<div>Wrong old pass!</div>
+    {% endif %}
     <form method="post" action="{% url 'pass_change' %}">
         {% csrf_token %}
         {{ form }}
         <button type="submit">Send Form</button>
     </form>
-    {{ form.cleaned_data }}
 </body>
 </html>
