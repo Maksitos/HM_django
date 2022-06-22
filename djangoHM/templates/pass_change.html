@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if wrong_pass %}
+<div>Wrong old pass!</div>
+    {% endif %}
+    <form method="post" action="{% url 'pass_change' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Send Form</button>
+    </form>
+</body>
+</html>
